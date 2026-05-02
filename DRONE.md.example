@@ -1,0 +1,39 @@
+# DRONE.md — Project Knowledge
+
+> Drop this file at your project root (or `.drone/DRONE.md`) and DevClaw will
+> auto-inject it into every task's system prompt.
+>
+> Keep it tight: think of it as a one-page onboarding doc for a new contractor
+> who needs to ship code today.
+
+## Project conventions
+
+- Language and version (e.g. Go 1.24, Node 20, Python 3.12)
+- Module path / package name
+- Test command (e.g. `go test ./...`, `npm test`, `pytest`)
+- Lint / format command
+- Code style notes (e.g. gofmt, no global mutable state, kebab-case file names)
+
+## Architecture
+
+Briefly describe each top-level directory and its role.
+
+```
+.
+├── cmd/        Application entry points
+├── internal/   Private business logic
+├── pkg/        Exported helpers
+└── docs/       Reference docs
+```
+
+## Forbidden / sensitive areas
+
+- Files DevClaw must not edit (e.g. `LICENSE`, `CHANGELOG.md`, generated code)
+- Secrets that must never be logged
+- API endpoints that must not be removed without coordination
+
+## Common tasks the agent should do well
+
+- Add a new HTTP endpoint: handler in `internal/api/`, register in `cmd/server`
+- Add a new database migration: `migrations/NNNN_*.sql`, run `make migrate`
+- Add a new feature flag: define in `pkg/config`, default off, doc'd in CHANGELOG

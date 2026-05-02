@@ -1,0 +1,39 @@
+# Normalize line endings across platforms — prevents noisy "LF will be
+# replaced by CRLF" warnings on Windows git and keeps diffs clean.
+
+* text=auto eol=lf
+
+# Explicit text file handling
+*.go        text eol=lf
+*.md        text eol=lf
+*.mod       text eol=lf
+*.sum       text eol=lf
+*.yaml      text eol=lf
+*.yml       text eol=lf
+*.json      text eol=lf
+*.toml      text eol=lf
+*.sh        text eol=lf
+Makefile    text eol=lf
+LICENSE     text eol=lf
+.gitignore  text eol=lf
+
+# Windows-native scripts keep CRLF (convention for .ps1)
+*.ps1       text eol=crlf
+*.bat       text eol=crlf
+*.cmd       text eol=crlf
+
+# Binary files — never convert
+*.png       binary
+*.jpg       binary
+*.ico       binary
+*.woff      binary
+*.woff2     binary
+*.ttf       binary
+*.otf       binary
+*.zip       binary
+*.gz        binary
+*.exe       binary
+
+# Linguist hints for GitHub stats
+*.go        linguist-language=Go
+Makefile    linguist-detectable=true

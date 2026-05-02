@@ -1,0 +1,30 @@
+# Build artifacts
+/drone
+/drone.exe
+/dist/
+/build/
+*.exe
+*.exe~
+
+# Go
+*.test
+*.prof
+vendor/
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# Local config / runtime data
+.drone/cache/
+.drone/traces/
+*.log
+.env
+.env.local
+
+# DevClaw runtime artifacts
+traces/
+trajectories/
