@@ -122,6 +122,6 @@ release:
 
   footer: |
     ---
-    - Full docs: https://devclaw.me
     - CLI reference: [COMMANDS.md](https://github.com/yinhe/devclaw/blob/{{ .Tag }}/COMMANDS.md)
     - Contributing: [CONTRIBUTING.md](https://github.com/yinhe/devclaw/blob/{{ .Tag }}/CONTRIBUTING.md) (note: we run a hybrid monorepo model)
+    - Discuss: [GitHub Discussions](https://github.com/yinhe/devclaw/discussions)

@@ -20,9 +20,8 @@ model** that affects how contributions land.
   you will be credited in the release notes and in the squashed commit
   message (`Co-authored-by: …`).
 
-If you want more context, see
-[REPO-STRATEGY.md](https://devclaw.me/repo-strategy) (or `e:\devlcaw\REPO-STRATEGY.md`
-in the private monorepo).
+The rationale is in the **Why the hybrid model?** section at the bottom of
+this file.
 
 ---
 

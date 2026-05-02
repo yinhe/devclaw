@@ -1,14 +1,8 @@
 blank_issues_enabled: false
 contact_links:
-  - name: Product home & docs
-    url: https://devclaw.me
-    about: Full product documentation, guides, and the Web Console.
-  - name: Demo / Swarm visualization
-    url: https://swarm.autos
-    about: Live visualization of a DevClaw swarm programming in parallel.
-  - name: Security vulnerability report (private)
+  - name: Discussion / Q&A
+    url: https://github.com/yinhe/devclaw/discussions
+    about: Ask questions, share ideas, or chat with the community.
+  - name: Security vulnerability (private report)
     url: https://github.com/yinhe/devclaw/security/advisories/new
     about: Please report security issues privately, not as public issues.
-  - name: Commercial / enterprise support
-    url: https://starclaw.net
-    about: For the full platform (Forge issue tracking, Pheromone events, Overlord orchestration).

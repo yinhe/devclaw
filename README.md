@@ -13,7 +13,6 @@
 [![Go Version](https://img.shields.io/badge/go-1.24+-00ADD8?logo=go&logoColor=white)](https://go.dev)
 [![Go Report Card](https://goreportcard.com/badge/github.com/yinhe/devclaw)](https://goreportcard.com/report/github.com/yinhe/devclaw)
 [![License](https://img.shields.io/badge/license-Apache--2.0-green.svg)](LICENSE)
-[![devclaw.me](https://img.shields.io/badge/home-devclaw.me-fbbf24?logo=bee&logoColor=white)](https://devclaw.me)
 
 ---
 
@@ -30,10 +29,33 @@ and **Aider**, with three differentiators:
 - 🧠 **Project knowledge built in** — `DRONE.md` (like `CLAUDE.md`) and
   `.drone/skills/*.md` are auto-injected into the system prompt.
 
-This repository ships the **kernel** — runtime, tools, MCP client, roles,
-worktree, and CLI. The full StarClaw enterprise build adds Forge issue tracking,
-Pheromone event reporting, and Overlord fleet orchestration on top of the same
-runtime via plugin hooks.
+---
+
+## ✅ What's in this repository
+
+Everything here is **Apache-2.0** — free forever, no asterisk:
+
+- **Runtime** — agent loop, context compression, trajectory logging
+- **13 built-in tools** — `bash`, `file_read` / `file_write`, `multi_edit`, `agent`, `parallel`, `undo`, `bash_approval`, …
+- **5 roles** — `dev`, `test`, `ops`, `sense`, `scout` (each with its own default tools + permissions)
+- **MCP client** — connect to any [Model Context Protocol](https://modelcontextprotocol.io) server over stdio
+- **Provider** — any OpenAI-compatible LLM (Ollama, OpenAI, StarAI, DeepSeek, …) with retry + streaming
+- **Git worktree isolation** — automatic per-task isolation so drones never step on each other
+- **CLI** — `drone run`, `drone roles`, `drone version` (one Go binary, zero deps, cross-platform)
+
+## 🚫 What's NOT in this repository
+
+The StarClaw team maintains some closed-source tooling that wraps this kernel
+for internal use. It is **not open-source** and **not for sale**:
+
+- `Forge` — issue tracking
+- `Pheromone` — event bus
+- `Overlord` — fleet orchestration
+- `Abathur` — skill distillation
+
+You don't need any of them. The kernel in this repo is fully functional standalone.
+If you want similar functionality, fork it — Apache-2.0 lets you build anything
+on top.
 
 ---
 
@@ -191,30 +213,28 @@ the whole tree with no cleanup needed.
 
 ---
 
-## Roadmap
+## Roadmap (OSS kernel)
 
-- [x] **Phase 0–6** — Kernel: runtime, 13 tools, MCP, 5 roles × 3 permissions,
-      worktree, agent/parallel, trajectory.
-- [ ] **Phase 7** — DevClaw Web Console (https://devclaw.me/console)
-- [ ] **Phase 8** — IDE plugins (VSCode / Cursor / Windsurf / JetBrains)
-- [ ] **Phase 9** — Skill marketplace (publish/subscribe with star-energy ⚡)
-- [ ] **Phase 10** — Abathur evolution engine (trajectory → distilled skills)
-- [ ] **Phase 11** — Desktop (Tauri) + Mobile (Flutter) clients
-- [ ] **Phase 12** — Enterprise fleet (Overlord orchestration, SSO, RBAC)
+Done (shipped in v0.1.x):
 
-See [`devclaw.me/roadmap`](https://devclaw.me/roadmap) for the full panorama.
+- [x] Runtime with 13 built-in tools + Agent/Parallel fan-out
+- [x] 5 roles × 3 permission tiers
+- [x] MCP stdio client
+- [x] Git worktree isolation
+- [x] Trajectory logging
+- [x] Cross-platform release binaries (linux / macOS / windows × amd64 / arm64)
 
----
+Next up (OSS only — contributions welcome):
 
-## Brand & domains
+- [ ] More providers: Anthropic-native, Gemini-native, `llama.cpp`
+- [ ] More tools: `web_fetch`, `browser`, `screenshot`, `sql_query`
+- [ ] More roles: `frontend`, `backend`, `security-reviewer`
+- [ ] Homebrew tap + Scoop bucket for one-command install
+- [ ] Snapshot releases on every `main` commit
 
-| Domain                        | Role                                                  |
-|-------------------------------|-------------------------------------------------------|
-| **`devclaw.me`**              | Primary product home, console, docs, downloads       |
-| **`swarm.autos`**             | Swarm visualization showcase / demo / hackathon site |
-| `drone.starclaw.net`          | Internal sub-domain in StarClaw enterprise stack     |
-
-`drone` is the code name and binary name. `DevClaw` is the public brand.
+> The StarClaw team works on additional (closed-source) tooling on top of this
+> kernel internally. Those plans are not part of this repo's roadmap and are
+> not committed to any public release schedule.
 
 ---
 

@@ -352,7 +352,8 @@ ENVIRONMENT:
   DRONE_MODEL     Model name (default: auto-detect)
 
 LEARN MORE:
-  https://devclaw.me        Product home
-  https://github.com/yinhe/devclaw   Source code
+  https://github.com/yinhe/devclaw              Source code
+  https://github.com/yinhe/devclaw/discussions  Ask questions
+  https://github.com/yinhe/devclaw/releases     Download binaries
 `)
 }
