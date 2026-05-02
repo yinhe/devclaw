@@ -6,9 +6,14 @@
 > description, picks tools, edits files, runs commands, and reports back.
 > Single Go binary. Zero dependencies. Cross-platform.
 
-[![Go Version](https://img.shields.io/badge/go-1.24+-00ADD8?logo=go)](https://go.dev)
+[![CI](https://github.com/yinhe/devclaw/actions/workflows/ci.yml/badge.svg)](https://github.com/yinhe/devclaw/actions/workflows/ci.yml)
+[![Release](https://github.com/yinhe/devclaw/actions/workflows/release.yml/badge.svg)](https://github.com/yinhe/devclaw/actions/workflows/release.yml)
+[![Latest Release](https://img.shields.io/github/v/release/yinhe/devclaw?include_prereleases&sort=semver&color=fbbf24)](https://github.com/yinhe/devclaw/releases/latest)
+[![Go Reference](https://pkg.go.dev/badge/github.com/yinhe/devclaw.svg)](https://pkg.go.dev/github.com/yinhe/devclaw)
+[![Go Version](https://img.shields.io/badge/go-1.24+-00ADD8?logo=go&logoColor=white)](https://go.dev)
+[![Go Report Card](https://goreportcard.com/badge/github.com/yinhe/devclaw)](https://goreportcard.com/report/github.com/yinhe/devclaw)
 [![License](https://img.shields.io/badge/license-Apache--2.0-green.svg)](LICENSE)
-[![Domain](https://img.shields.io/badge/devclaw.me-FBB?logo=internetexplorer&logoColor=white)](https://devclaw.me)
+[![devclaw.me](https://img.shields.io/badge/home-devclaw.me-fbbf24?logo=bee&logoColor=white)](https://devclaw.me)
 
 ---
 

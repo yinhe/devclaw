@@ -31,13 +31,22 @@ import (
 	"github.com/yinhe/devclaw/internal/worktree"
 )
 
-var version = "0.1.0-oss"
+// Build info — goreleaser injects real values via -ldflags at release time.
+// Local `go build` leaves these as "dev" / "none" / "unknown".
+var (
+	version = "dev"
+	commit  = "none"
+	date    = "unknown"
+)
 
 func main() {
 	if len(os.Args) > 1 {
 		switch os.Args[1] {
 		case "version", "-v", "--version":
 			fmt.Printf("drone %s (DevClaw kernel · OSS build)\n", version)
+			if commit != "none" || date != "unknown" {
+				fmt.Printf("  commit: %s\n  built:  %s\n", commit, date)
+			}
 			return
 		case "roles":
 			fmt.Println("Available roles:")

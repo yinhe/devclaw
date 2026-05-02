@@ -1,0 +1,127 @@
+# GoReleaser config — https://goreleaser.com
+#
+# Produces the `drone` binary for linux / darwin / windows × amd64 / arm64
+# and publishes a GitHub Release with archives, checksums, and changelog.
+
+version: 2
+
+project_name: devclaw
+
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+  - id: drone
+    main: ./cmd/drone
+    binary: drone
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - darwin
+      - windows
+    goarch:
+      - amd64
+      - arm64
+    ignore:
+      # Skip windows/arm64 until there is clear demand
+      - goos: windows
+        goarch: arm64
+    flags:
+      - -trimpath
+    ldflags:
+      - -s -w
+      - -X main.version={{.Version}}
+      - -X main.commit={{.ShortCommit}}
+      - -X main.date={{.Date}}
+
+archives:
+  - id: drone
+    ids: [drone]
+    name_template: >-
+      drone_{{ .Version }}_
+      {{- if eq .Os "darwin" }}mac
+      {{- else }}{{ .Os }}{{ end }}_
+      {{- if eq .Arch "amd64" }}x86_64
+      {{- else if eq .Arch "386" }}i386
+      {{- else }}{{ .Arch }}{{ end }}
+    formats:
+      - tar.gz
+    format_overrides:
+      - goos: windows
+        formats:
+          - zip
+    files:
+      - README.md
+      - LICENSE
+      - COMMANDS.md
+      - DRONE.md.example
+
+checksum:
+  name_template: 'checksums.txt'
+  algorithm: sha256
+
+snapshot:
+  version_template: '{{ incpatch .Version }}-snapshot-{{ .ShortCommit }}'
+
+changelog:
+  sort: asc
+  use: github
+  groups:
+    - title: 'New Features'
+      regexp: '^.*?feat(\([^)]+\))?:.+'
+      order: 0
+    - title: 'Bug Fixes'
+      regexp: '^.*?fix(\([^)]+\))?:.+'
+      order: 1
+    - title: 'Performance'
+      regexp: '^.*?perf(\([^)]+\))?:.+'
+      order: 2
+    - title: 'Other'
+      order: 999
+  filters:
+    exclude:
+      - '^docs:'
+      - '^test:'
+      - '^chore:'
+      - '^ci:'
+      - '^style:'
+      - 'typo'
+      - Merge pull request
+      - Merge branch
+
+release:
+  github:
+    owner: yinhe
+    name: devclaw
+  draft: false
+  prerelease: auto
+  mode: replace
+  header: |
+    # DevClaw Drone `{{ .Tag }}`
+
+    > A swarm of drones programs while you sleep — one Go binary, zero deps,
+    > any OpenAI-compatible LLM.
+
+    ## Install
+
+    **Download** the archive for your OS/arch below, extract, and put `drone`
+    on your `PATH`. Or from source:
+
+    ```bash
+    go install github.com/yinhe/devclaw/cmd/drone@{{ .Tag }}
+    ```
+
+    **Quick start:**
+    ```bash
+    drone run "fix the broken link in README.md"
+    drone roles
+    drone version
+    ```
+
+  footer: |
+    ---
+    - Full docs: https://devclaw.me
+    - CLI reference: [COMMANDS.md](https://github.com/yinhe/devclaw/blob/{{ .Tag }}/COMMANDS.md)
+    - Contributing: [CONTRIBUTING.md](https://github.com/yinhe/devclaw/blob/{{ .Tag }}/CONTRIBUTING.md) (note: we run a hybrid monorepo model)
