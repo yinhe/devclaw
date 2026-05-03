@@ -47,6 +47,7 @@ func main() {
 			if commit != "none" || date != "unknown" {
 				fmt.Printf("  commit: %s\n  built:  %s\n", commit, date)
 			}
+			fmt.Println("  home:   https://devclaw.me")
 			return
 		case "roles":
 			fmt.Println("Available roles:")
@@ -352,6 +353,7 @@ ENVIRONMENT:
   DRONE_MODEL     Model name (default: auto-detect)
 
 LEARN MORE:
+  https://devclaw.me                            Homepage (8 languages)
   https://github.com/yinhe/devclaw              Source code
   https://github.com/yinhe/devclaw/discussions  Ask questions
   https://github.com/yinhe/devclaw/releases     Download binaries

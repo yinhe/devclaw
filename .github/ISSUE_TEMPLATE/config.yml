@@ -1,5 +1,8 @@
 blank_issues_enabled: false
 contact_links:
+  - name: Website & downloads
+    url: https://devclaw.me
+    about: Project homepage, install instructions, and release downloads (multi-language).
   - name: Discussion / Q&A
     url: https://github.com/yinhe/devclaw/discussions
     about: Ask questions, share ideas, or chat with the community.

@@ -13,6 +13,7 @@
 [![Go Version](https://img.shields.io/badge/go-1.24+-00ADD8?logo=go&logoColor=white)](https://go.dev)
 [![Go Report Card](https://goreportcard.com/badge/github.com/yinhe/devclaw)](https://goreportcard.com/report/github.com/yinhe/devclaw)
 [![License](https://img.shields.io/badge/license-Apache--2.0-green.svg)](LICENSE)
+[![Home](https://img.shields.io/badge/home-devclaw.me-fbbf24)](https://devclaw.me)
 
 ---
 
@@ -242,4 +243,4 @@ Next up (OSS only — contributions welcome):
 
 Apache-2.0. See [`LICENSE`](LICENSE).
 
-DevClaw is part of the [StarClaw](https://starclaw.net) ecosystem.
+Homepage: [devclaw.me](https://devclaw.me) (Apache-2.0 kernel) — part of the [StarClaw](https://starclaw.net) ecosystem.
